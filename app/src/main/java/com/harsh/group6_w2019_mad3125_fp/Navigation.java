@@ -93,14 +93,14 @@ public class Navigation extends AppCompatActivity
             alertdialogBuilder.setTitle("Email");
             alertdialogBuilder.setMessage("contactus@payroll.com")
                     .setCancelable(false)
-                    .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int i) {
 
                             Navigation.this.finish();
                         }
                     })
-                    .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int i) {
                             dialog.cancel();
