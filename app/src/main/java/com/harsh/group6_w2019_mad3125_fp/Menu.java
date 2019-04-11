@@ -13,10 +13,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
-public class Navigation extends AppCompatActivity
+public class Menu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -56,7 +55,7 @@ public class Navigation extends AppCompatActivity
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation, menu);
         return true;
@@ -89,7 +88,7 @@ public class Navigation extends AppCompatActivity
 
         } else if (id == R.id.nav_help) {
 
-            AlertDialog.Builder alertdialogBuilder = new AlertDialog.Builder(Navigation.this);
+            AlertDialog.Builder alertdialogBuilder = new AlertDialog.Builder(Menu.this);
             alertdialogBuilder.setTitle("Email");
             alertdialogBuilder.setMessage("contactus@payroll.com")
                     .setCancelable(false)
@@ -97,7 +96,7 @@ public class Navigation extends AppCompatActivity
                         @Override
                         public void onClick(DialogInterface dialog, int i) {
 
-                            Navigation.this.finish();
+                            Menu.this.finish();
                         }
                     })
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -115,7 +114,7 @@ public class Navigation extends AppCompatActivity
 
         } else if (id == R.id.nav_logout) {
 
-            Intent mIntent = new Intent(Navigation.this,LoginActivity.class);
+            Intent mIntent = new Intent(Menu.this,LoginActivity.class);
             startActivity(mIntent);
 
 

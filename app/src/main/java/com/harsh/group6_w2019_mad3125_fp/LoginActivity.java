@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     lblmsg.setText("login successful");
                     lblmsg.setTextColor(Color.GREEN);
-                    Intent mIntent = new Intent(LoginActivity.this,Navigation.class);
+                    Intent mIntent = new Intent(LoginActivity.this, Menu.class);
                     mIntent.putExtra("name","sushmitha");
                     startActivity(mIntent);
 
