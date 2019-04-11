@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single" >
+
+        <item android:id="@+id/employees"
+            android:icon="@drawable/employees_24dp"
+            android:title="Employees"
+            android:iconTint="@color/orange"/>
+        <item android:id="@+id/add_employee"
+            android:icon="@drawable/add_employee_24dp"
+            android:title="Add Employee"
+            android:iconTint="@color/yello"
+            />
+        <item android:id="@+id/about_us"
+            android:icon="@drawable/about_us_24dp"
+            android:title="About Us"
+            android:iconTint="@color/pink"/>
+    </group>
+    <item android:title="">
+        <menu>
+            <item android:id="@+id/logout"
+                android:icon="@drawable/logout_24dp"
+                android:title="Logout"
+                android:iconTint="@color/light_grey" />
+        </menu>
+
+    </item>
+
+
+</menu>
