@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.edtPassword);
         lblmsg = findViewById(R.id.lblMessage);
         btnSignin = findViewById(R.id.btnSignin);
-        btnClear = findViewById(R.id.btnClear);
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
@@ -55,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     lblmsg.setText("login successful");
                     lblmsg.setTextColor(Color.GREEN);
-                    Intent mIntent = new Intent(LoginActivity.this,VehicleActivity.class);
+                    Intent mIntent = new Intent(LoginActivity.this,Navigation.class);
                     mIntent.putExtra("name","sushmitha");
                     startActivity(mIntent);
 
