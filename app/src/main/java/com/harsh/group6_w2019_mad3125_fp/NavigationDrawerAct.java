@@ -1,5 +1,6 @@
 package com.harsh.group6_w2019_mad3125_fp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -73,6 +74,7 @@ public class NavigationDrawerAct extends AppCompatActivity {
                         Toast.makeText(NavigationDrawerAct.this, "About US" , Toast.LENGTH_LONG).show();
                         break;
                     case R.id.logout :
+                        startActivity(new Intent(NavigationDrawerAct.this, LoginActivity.class));
                         Toast.makeText(NavigationDrawerAct.this, "Logout" , Toast.LENGTH_LONG).show();
                         break;
 

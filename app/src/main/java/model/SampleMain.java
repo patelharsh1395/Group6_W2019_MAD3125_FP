@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+import model.abstracts.Employee;
 import model.enums.gender;
 
 public class SampleMain {
 
-	public static void main(String[] args) {
+	public static ArrayList<Employee> mainMethod() {
 		//System.out.println("Hello world");
 		
 		//Employee e1 = new Employee("Mahesh", 20);
@@ -33,10 +33,10 @@ public class SampleMain {
 		singleton.addIntoList(cm);
 		singleton.addIntoList(fp);
 				
-		singleton.displayList();		
+		//singleton.displayList();
 		
 		
-		
+		return singleton.getList();
 				
 	}
 

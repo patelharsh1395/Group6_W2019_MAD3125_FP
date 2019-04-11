@@ -37,6 +37,10 @@ public class SingleToneExample {
 					System.out.print("\n");
 				}
 			}
+			public ArrayList<Employee> getList()
+			{
+				return  ((ArrayList<Employee>)this.ee);
+			}
 			
 			
 			
