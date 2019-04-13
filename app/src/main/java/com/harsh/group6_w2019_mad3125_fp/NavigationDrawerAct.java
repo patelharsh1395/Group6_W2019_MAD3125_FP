@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -39,11 +40,17 @@ public class NavigationDrawerAct extends AppCompatActivity {
         employeeFragment = new EmployeeFragment();
 
 
+
         //reference -  https://stackoverflow.com/questions/26486730/in-android-app-toolbar-settitle-method-has-no-effect-application-name-is-shown
         // for displaying title on ToolBar
+        // reference - https://developer.android.com/training/implementing-navigation/nav-drawer
+        // for Add the nav drawer button
         this.customToolBar = findViewById(R.id.Customtoolbar);
         setSupportActionBar(this.customToolBar);
-        getSupportActionBar().setTitle("My title");
+        final ActionBar actionbar = getSupportActionBar();
+        actionbar.setTitle("My title");
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.navigation_drawer_button_24dp);
 
         fragmentManager = getSupportFragmentManager();
         this.fragmentTransaction = fragmentManager.beginTransaction();
@@ -64,7 +71,7 @@ public class NavigationDrawerAct extends AppCompatActivity {
                         fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout, employeeFragment, null);
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Employees");
+                        actionbar.setTitle("Employees");
                         NavigationDrawerAct.this.nav_drawer.closeDrawer(Gravity.START, true);
                         Toast.makeText(NavigationDrawerAct.this, "Employees" , Toast.LENGTH_LONG).show();
                         break;
@@ -76,7 +83,7 @@ public class NavigationDrawerAct extends AppCompatActivity {
                         fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout, addEmployeesFragment);
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Add employee");
+                        actionbar.setTitle("Add employee");
                         NavigationDrawerAct.this.nav_drawer.closeDrawer(Gravity.START, true);
                         Toast.makeText(NavigationDrawerAct.this, "Add employee" , Toast.LENGTH_LONG).show();
                         break;
@@ -88,7 +95,7 @@ public class NavigationDrawerAct extends AppCompatActivity {
                         fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout, aboutUsFragment);
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("About US");
+                        actionbar.setTitle("About US");
                         NavigationDrawerAct.this.nav_drawer.closeDrawer(Gravity.START, true);
                         Toast.makeText(NavigationDrawerAct.this, "About US" , Toast.LENGTH_LONG).show();
                         break;
@@ -105,5 +112,16 @@ public class NavigationDrawerAct extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.nav_drawer.openDrawer(Gravity.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
