@@ -2,16 +2,20 @@ package com.harsh.group6_w2019_mad3125_fp;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import CustomAdapters.CustomAdapterForRecyclerView;
@@ -21,11 +25,14 @@ import model.abstracts.Employee;
 
 import static model.SampleMain.*;
 
-public class EmployeeFragment extends Fragment {
+public class EmployeeFragment extends Fragment   {
 
     ArrayList<Employee> employees_list;
     Context con;
     RecyclerView recyclerView;
+    CustomAdapterForRecyclerView adapter;
+
+
 
 
 
@@ -33,26 +40,49 @@ public class EmployeeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.con = inflater.getContext();
-        return inflater.inflate(R.layout.employee_fragment_layout, container, false);
+        Log.e("***************","inside onCreateView");
+
+        View v =  inflater.inflate(R.layout.employee_fragment_layout, container, false);
 
 
-    }
+        employees_list = SingleToneExample.getObj().getList();
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        employees_list = SampleMain.mainMethod();
-        this.recyclerView = getView().findViewById(R.id.recycler_view);
-        CustomAdapterForRecyclerView adapter = new CustomAdapterForRecyclerView(employees_list, this.con, new CustomAdapterForRecyclerView.SetCustomClickListener() {
+        this.recyclerView = v.findViewById(R.id.recycler_view);
+        adapter = new CustomAdapterForRecyclerView(employees_list, this.con, new CustomAdapterForRecyclerView.SetCustomClickListener() {
             @Override
             public void customOnClick(Employee e) {
-                Toast.makeText( EmployeeFragment.this.con , e.getName() , Toast.LENGTH_LONG ).show();
+                Toast.makeText(EmployeeFragment.this.con, e.getName(), Toast.LENGTH_LONG).show();
             }
         });
         this.recyclerView.setAdapter(adapter);
         this.recyclerView.setLayoutManager(new LinearLayoutManager(this.con));
 
+        return v;
+
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
+
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+
+        super.onSaveInstanceState(outState);
+
+
+
+    }
+
 
 
 }
