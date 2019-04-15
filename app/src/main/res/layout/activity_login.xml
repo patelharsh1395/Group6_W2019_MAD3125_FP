@@ -44,6 +44,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter Password"
+            android:drawableStart="@drawable/ic_action_password"
             android:inputType="textPassword" />
     </android.support.design.widget.TextInputLayout>
 
