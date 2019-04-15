@@ -27,6 +27,7 @@ public class NavigationDrawerAct extends AppCompatActivity {
     AboutUsFragment aboutUsFragment;
     AddEmployeesFragment addEmployeesFragment;
     EmployeeFragment employeeFragment;
+    ContactUsFragment contactUsFragment;
     DrawerLayout nav_drawer;
 
 
@@ -98,6 +99,18 @@ public class NavigationDrawerAct extends AppCompatActivity {
                         actionbar.setTitle("About US");
                         NavigationDrawerAct.this.nav_drawer.closeDrawer(Gravity.START, true);
                         Toast.makeText(NavigationDrawerAct.this, "About US" , Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.contact_us :
+                        if(contactUsFragment == null)
+                        {
+                            contactUsFragment = new ContactUsFragment();
+                        }
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.frame_layout, contactUsFragment);
+                        fragmentTransaction.commit();
+                        actionbar.setTitle("Contact Us");
+                        NavigationDrawerAct.this.nav_drawer.closeDrawer(Gravity.START, true);
+                        Toast.makeText(NavigationDrawerAct.this, "Contact Us" , Toast.LENGTH_LONG).show();
                         break;
                     case R.id.logout :
                         startActivity(new Intent(NavigationDrawerAct.this, LoginActivity.class));

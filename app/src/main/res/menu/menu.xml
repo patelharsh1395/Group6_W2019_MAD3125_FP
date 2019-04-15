@@ -18,6 +18,11 @@
             android:icon="@drawable/about_us_24dp"
             android:title="About Us"
             android:iconTint="@color/pink"/>
+
+        <item android:id="@+id/contact_us"
+            android:icon="@drawable/contact_us_24dp"
+            android:title="Contact Us"
+            android:iconTint="@color/pink"/>
     </group>
     <item android:title="">
         <menu>
