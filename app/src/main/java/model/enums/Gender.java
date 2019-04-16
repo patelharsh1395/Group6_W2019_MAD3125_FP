@@ -1,5 +1,5 @@
 package model.enums;
 
-public enum gender {
+public enum Gender {
 		MALE, FEMALE
 }

@@ -8,11 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.harsh.group6_w2019_mad3125_fp.interfaces.DataFromAddEmployeeFragment;
 
 import org.w3c.dom.Text;
 
-public class FullTimeFragment extends Fragment {
+public class FullTimeFragment extends Fragment implements DataFromAddEmployeeFragment {
+
+
+    TextView name;
+    TextView age;
+    RadioGroup gender;
 
     TextView salary;
     TextView bonus;
@@ -41,7 +50,15 @@ public class FullTimeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
             }
         });
+    }
+
+    @Override
+    public void viewsFromAddEmployeeFragment(TextView name, TextView age, RadioGroup gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
     }
 }

@@ -4,7 +4,7 @@ package model;
 
 import model.abstracts.PartTime;
 import model.abstracts.Vehicle;
-import model.enums.gender;
+import model.enums.Gender;
 
 public class CommissionBasedPartTime extends PartTime {
 		
@@ -12,7 +12,7 @@ public class CommissionBasedPartTime extends PartTime {
 		private int commission;
 		
 		
-		public CommissionBasedPartTime(int commission, int rate, float hours, String name, int age , gender gen , Vehicle vehicle) {
+		public CommissionBasedPartTime(int commission, int rate, float hours, String name, int age , Gender gen , Vehicle vehicle) {
 			super(rate, hours, name, age, gen , vehicle);
 			this.commission = commission;
 		}

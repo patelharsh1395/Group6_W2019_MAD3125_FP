@@ -25,6 +25,8 @@ import android.widget.Toast;
 
 public class AddEmployeesFragment extends Fragment implements View.OnClickListener {
 
+    TextView text_age;
+    TextView text_name;
     TextView text_date_of_birth;
     RadioGroup gender;
     RadioGroup employementtype;
@@ -47,7 +49,8 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
         super.onViewCreated(view, savedInstanceState);
 
 
-
+        this.text_age = view.findViewById(R.id.text_age);
+        this.text_name = view.findViewById(R.id.text_name);
         this.fragmentManager = this.getActivity().getSupportFragmentManager();
 
 
@@ -88,6 +91,7 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
                         if(AddEmployeesFragment.this.partTimeFragment  == null)
                         {
                             AddEmployeesFragment.this.partTimeFragment = new PartTimeFragment();
+                            AddEmployeesFragment.this.partTimeFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender);
                         }
                         fragmentTransaction = AddEmployeesFragment.this.fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout_employment, AddEmployeesFragment.this.partTimeFragment);
@@ -98,6 +102,7 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
                         if(AddEmployeesFragment.this.fullTimeFragment  == null)
                         {
                             AddEmployeesFragment.this.fullTimeFragment = new FullTimeFragment();
+                            AddEmployeesFragment.this.fullTimeFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender);
                         }
                         fragmentTransaction = AddEmployeesFragment.this.fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout_employment, AddEmployeesFragment.this.fullTimeFragment);
@@ -108,6 +113,7 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
                         if(AddEmployeesFragment.this.internFragment  == null)
                         {
                             AddEmployeesFragment.this.internFragment = new InternFragment();
+                            AddEmployeesFragment.this.internFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender);
                         }
                         fragmentTransaction = AddEmployeesFragment.this.fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout_employment, AddEmployeesFragment.this.internFragment);

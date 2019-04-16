@@ -4,7 +4,7 @@ package model;
 
 import model.abstracts.Employee;
 import model.abstracts.Vehicle;
-import model.enums.gender;
+import model.enums.Gender;
 
 public class Intern extends Employee {
 		private String schoolname;
@@ -15,7 +15,7 @@ public class Intern extends Employee {
 		
 		
 		 
-		public Intern(String schoolname, String name, int age , gender gen , Vehicle vehicle ) {
+		public Intern(String schoolname, String name, int age , Gender gen , Vehicle vehicle ) {
 			super(name,age, gen , vehicle);
 			this.schoolname = schoolname;
 		}

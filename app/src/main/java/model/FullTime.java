@@ -4,7 +4,7 @@ package model;
 
 import model.abstracts.Employee;
 import model.abstracts.Vehicle;
-import model.enums.gender;
+import model.enums.Gender;
 
 public class FullTime extends Employee {
 	private int salary;
@@ -13,7 +13,7 @@ public class FullTime extends Employee {
 	
 	
 	
-	public FullTime(int salary, int bonus, String name, int age, gender gen, Vehicle vehicle) {
+	public FullTime(int salary, int bonus, String name, int age, Gender gen, Vehicle vehicle) {
 		super(name,age, gen ,vehicle);
 		this.salary = salary;
 		this.bonus = bonus;

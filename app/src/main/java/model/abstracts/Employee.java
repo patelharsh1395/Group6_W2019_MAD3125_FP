@@ -4,13 +4,13 @@ package model.abstracts;
 import java.util.Calendar;
 
 import model.UserDefinedExe;
-import model.enums.gender;
+import model.enums.Gender;
 import model.interfaces.IPrintable;
 
 public abstract class Employee implements IPrintable {
 	private String Name;
 	private int age;	
-	private gender gen;
+	private Gender gen;
 	
 	private Vehicle vehicle;
 	
@@ -21,7 +21,7 @@ public abstract class Employee implements IPrintable {
 		
 	}
 	
-	public Employee(String name, int age,gender gen, Vehicle vehicle) {
+	public Employee(String name, int age, Gender gen, Vehicle vehicle) {
 		super();
 		Name = name;
 		this.age = age;
@@ -76,11 +76,11 @@ public abstract class Employee implements IPrintable {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
-	public gender getGen() {
+	public Gender getGen() {
 		return gen;
 	}
 
-	public void setGen(gender gen) {
+	public void setGen(Gender gen) {
 		this.gen = gen;
 	}
 

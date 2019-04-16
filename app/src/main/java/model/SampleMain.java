@@ -1,12 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
-import model.abstracts.Employee;
-import model.enums.gender;
-
 public class SampleMain {
 
 	//public static ArrayList<Employee> mainMethod() {

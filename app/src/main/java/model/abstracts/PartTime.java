@@ -1,7 +1,7 @@
 package model.abstracts;
 
 
-import model.enums.gender;
+import model.enums.Gender;
 
 public abstract class PartTime extends Employee {
 		private int rate;
@@ -9,7 +9,7 @@ public abstract class PartTime extends Employee {
 		
 		
 		
-		public PartTime(int rate, float hours , String name, int age , gender gen , Vehicle vehicle) {
+		public PartTime(int rate, float hours , String name, int age , Gender gen , Vehicle vehicle) {
 			super(name, age, gen , vehicle);
 			this.rate = rate;
 			this.hours = hours;

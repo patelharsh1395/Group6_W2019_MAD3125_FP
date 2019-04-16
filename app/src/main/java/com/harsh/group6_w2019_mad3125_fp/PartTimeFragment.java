@@ -13,17 +13,20 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.harsh.group6_w2019_mad3125_fp.interfaces.DataFromAddEmployeeFragment;
+
 import model.abstracts.PartTime;
 
-public class PartTimeFragment extends Fragment {
+public class PartTimeFragment extends Fragment implements DataFromAddEmployeeFragment {
+
 
 
     TextView name;
     TextView age;
     RadioGroup gender;
 
-
-
+    TextView ratePerHour;
+    TextView numberOfHours;
 
 
     RadioGroup parttimeType;
@@ -31,12 +34,16 @@ public class PartTimeFragment extends Fragment {
     CommissionBasedFragment commissionBasedFragment;
     FixBasedFragment fixBasedFragment;
 
-//    public PartTimeFragment(TextView name, TextView age, RadioGroup gender) {
-//
-//        this.name = name;
-//        this.age = age;
-//        this.gender = gender;
-//    }
+
+
+
+    public void viewsFromAddEmployeeFragment(TextView name, TextView age, RadioGroup gender)
+    {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+
 
 
     @Nullable
@@ -49,6 +56,11 @@ public class PartTimeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        this.ratePerHour = view.findViewById(R.id.text_rateper_hour);
+        this.numberOfHours = view.findViewById(R.id.text_number_of_hours);
+
+        this.fragmentManager = getActivity().getSupportFragmentManager();
 
         this.parttimeType = getActivity().findViewById(R.id.radio_group_parttime_type);
         this.parttimeType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -63,6 +75,7 @@ public class PartTimeFragment extends Fragment {
                         if(PartTimeFragment.this.commissionBasedFragment == null)
                         {
                             PartTimeFragment.this.commissionBasedFragment = new CommissionBasedFragment();
+                            PartTimeFragment.this.commissionBasedFragment.viewsFromPartTimeFragment(name,age,gender,ratePerHour, numberOfHours);
                         }
                         PartTimeFragment.this.fragmentManager.beginTransaction();
                          fragmentTransaction = PartTimeFragment.this.fragmentManager.beginTransaction();
@@ -84,7 +97,7 @@ public class PartTimeFragment extends Fragment {
         });
 
 
-        this.fragmentManager = getActivity().getSupportFragmentManager();
+
 
 
 

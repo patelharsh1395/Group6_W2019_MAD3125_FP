@@ -13,7 +13,7 @@
 
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/text_rateper_hour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -30,14 +30,13 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/text_number_of_hours"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Number of hours"
             android:inputType="numberDecimal"
-            android:padding="10dp"
-             />
+            android:padding="10dp" />
 
     </android.support.design.widget.TextInputLayout>
 

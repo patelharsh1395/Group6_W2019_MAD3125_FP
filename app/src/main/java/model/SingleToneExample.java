@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.abstracts.Employee;
-import model.enums.gender;
+import model.enums.Gender;
+
 
 public class SingleToneExample {
 			
@@ -18,10 +19,10 @@ public class SingleToneExample {
 
 				employees = new ArrayList<>();
 
-				Intern in = new Intern("Lambton","Mahesh", -20, gender.MALE , null);
-				FullTime ft = new FullTime(10000, 500,"Raju", 30, gender.MALE ,new MotorCycle("Audi","A4" , "CA123", 15));
-				CommissionBasedPartTime cm = new CommissionBasedPartTime(10, 5, 5, "Gurminder", 27 , gender.FEMALE ,new Car("Audi","A4" , "CA123", 15) );
-				FixedBasedPartTime fp = new FixedBasedPartTime(1000, 5, 5,"Rohan", 27 , gender.MALE ,new MotorCycle("Audi","A4" , "CA123", 15) );
+				Intern in = new Intern("Lambton","Mahesh", -20, Gender.MALE , null);
+				FullTime ft = new FullTime(10000, 500,"Raju", 30, Gender.MALE ,new MotorCycle("Audi","A4" , "CA123", 15));
+				CommissionBasedPartTime cm = new CommissionBasedPartTime(10, 5, 5, "Gurminder", 27 , Gender.FEMALE ,new Car("Audi","A4" , "CA123", 15) );
+				FixedBasedPartTime fp = new FixedBasedPartTime(1000, 5, 5,"Rohan", 27 , Gender.MALE ,new MotorCycle("Audi","A4" , "CA123", 15) );
 
 
 

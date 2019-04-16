@@ -8,9 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class InternFragment extends Fragment {
+import com.harsh.group6_w2019_mad3125_fp.interfaces.DataFromAddEmployeeFragment;
+
+public class InternFragment extends Fragment implements DataFromAddEmployeeFragment {
+
+    TextView name;
+    TextView age;
+    RadioGroup gender;
 
     TextView schoolName;
     Button addIntern;
@@ -39,5 +46,12 @@ public class InternFragment extends Fragment {
         });
 
 
+    }
+
+    @Override
+    public void viewsFromAddEmployeeFragment(TextView name, TextView age, RadioGroup gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
     }
 }

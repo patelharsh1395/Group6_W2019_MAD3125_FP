@@ -3,7 +3,6 @@ package CustomAdapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,9 @@ import android.widget.TextView;
 import com.harsh.group6_w2019_mad3125_fp.R;
 
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 
 import model.abstracts.Employee;
-import model.enums.gender;
+import model.enums.Gender;
 
 public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAdapterForRecyclerView.ViewHolder> {
 
@@ -76,7 +74,7 @@ public class CustomAdapterForRecyclerView extends RecyclerView.Adapter<CustomAda
 
         public  void bind(final Employee e , final SetCustomClickListener listener)
         {
-            if(e.getGen() == model.enums.gender.MALE )
+            if(e.getGen() == Gender.MALE )
             {
                 gender.setText("MALE");
             }
