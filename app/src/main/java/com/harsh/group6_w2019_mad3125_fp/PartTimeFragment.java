@@ -22,10 +22,7 @@ public class PartTimeFragment extends Fragment {
     TextView age;
     RadioGroup gender;
 
-    public PartTimeFragment()
-    {
 
-    }
 
 
 
@@ -34,12 +31,12 @@ public class PartTimeFragment extends Fragment {
     CommissionBasedFragment commissionBasedFragment;
     FixBasedFragment fixBasedFragment;
 
-    public PartTimeFragment(TextView name, TextView age, RadioGroup gender) {
-       
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-    }
+//    public PartTimeFragment(TextView name, TextView age, RadioGroup gender) {
+//
+//        this.name = name;
+//        this.age = age;
+//        this.gender = gender;
+//    }
 
 
     @Nullable
