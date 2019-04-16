@@ -11,12 +11,12 @@ public class SingleToneExample {
 			
 	
 			static SingleToneExample obj = null;
-			List<Employee> ee;
+			List<Employee> employees;
 			private SingleToneExample()
 			{
 
 
-				ee = new ArrayList<>();
+				employees = new ArrayList<>();
 
 				Intern in = new Intern("Lambton","Mahesh", -20, gender.MALE , null);
 				FullTime ft = new FullTime(10000, 500,"Raju", 30, gender.MALE ,new MotorCycle("Audi","A4" , "CA123", 15));
@@ -41,12 +41,12 @@ public class SingleToneExample {
 			}
 			public void addIntoList(Employee temp)
 			{
-				ee.add(temp);
+				employees.add(temp);
 				
 			}
 			public void  displayList()
 			{
-				for(Employee e : this.ee)
+				for(Employee e : this.employees)
 				{
 					System.out.print(e.printData());
 					System.out.print("\n");
@@ -54,7 +54,7 @@ public class SingleToneExample {
 			}
 			public ArrayList<Employee> getList()
 			{
-				return  ((ArrayList<Employee>)this.ee);
+				return  ((ArrayList<Employee>)this.employees);
 			}
 			
 			

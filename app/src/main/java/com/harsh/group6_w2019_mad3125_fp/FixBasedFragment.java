@@ -7,8 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class FixBasedFragment extends Fragment {
+
+    TextView fixedamount;
+    Button addFixedBasedEmployee;
+
 
     @Nullable
     @Override
@@ -19,6 +25,17 @@ public class FixBasedFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        this.fixedamount = view.findViewById(R.id.text_fixamount);
+
+
+        this.addFixedBasedEmployee = view.findViewById(R.id.btn_add_fix_based);
+        this.addFixedBasedEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
 

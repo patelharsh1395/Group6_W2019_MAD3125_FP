@@ -2,7 +2,7 @@ package model.abstracts;
 
 
 
-import model.inter.IPrintable;
+import model.interfaces.IPrintable;
 
 public abstract class Vehicle implements IPrintable {
 		private String make;

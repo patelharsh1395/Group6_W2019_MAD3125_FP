@@ -1,4 +1,4 @@
-package model.inter;
+package model.interfaces;
 
 
 @FunctionalInterface

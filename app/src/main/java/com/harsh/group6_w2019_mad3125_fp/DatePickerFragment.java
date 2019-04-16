@@ -28,9 +28,14 @@ public class DatePickerFragment extends DialogFragment  {
             public void onDateSet(DatePicker view, int yyyy, int mm, int dd) {
               //  Toast.makeText(getContext(),"year "+year+" month "+month+" day "+day, Toast.LENGTH_LONG).show();
 
-              TextView text_age =  getActivity().findViewById(R.id.text_date_of_birth);
+              TextView text_dob =  getActivity().findViewById(R.id.text_date_of_birth);
               //text_age.setText("DateOfBirth : "+year+"/"+month+"/"+day);
-              text_age.setText(SpanningForString.forDate((String)"DateOfBirth : "+yyyy+"/"+(mm+1)+"/"+dd));
+                int age = Calendar.getInstance().get(Calendar.YEAR) - yyyy;
+
+                TextView text_age = getActivity().findViewById(R.id.text_age);
+                text_age.setText("Age : "+age);
+
+              text_dob.setText(SpanningForString.forDate((String)"DateOfBirth : "+yyyy+"/"+(mm+1)+"/"+dd));
             }
         },year,month,day);
     }

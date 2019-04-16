@@ -19,9 +19,8 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Rate per hour"
-            android:inputType="textPersonName"
-            android:padding="10dp"
-            />
+            android:inputType="number"
+            android:padding="10dp" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -36,7 +35,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Number of hours"
-            android:inputType="textPersonName"
+            android:inputType="numberDecimal"
             android:padding="10dp"
              />
 

@@ -11,16 +11,35 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import model.abstracts.PartTime;
 
 public class PartTimeFragment extends Fragment {
 
 
+    TextView name;
+    TextView age;
+    RadioGroup gender;
+
+    public PartTimeFragment()
+    {
+
+    }
+
+
+
     RadioGroup parttimeType;
     FragmentManager fragmentManager;
     CommissionBasedFragment commissionBasedFragment;
     FixBasedFragment fixBasedFragment;
+
+    public PartTimeFragment(TextView name, TextView age, RadioGroup gender) {
+       
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
 
 
     @Nullable
@@ -43,7 +62,7 @@ public class PartTimeFragment extends Fragment {
                 FragmentTransaction fragmentTransaction;
                 switch (checkedId)
                 {
-                    case R.id.radio_fix_parttime :
+                    case R.id.radio_commission_parttime :
                         if(PartTimeFragment.this.commissionBasedFragment == null)
                         {
                             PartTimeFragment.this.commissionBasedFragment = new CommissionBasedFragment();
@@ -54,7 +73,7 @@ public class PartTimeFragment extends Fragment {
                         fragmentTransaction.commit();
                         break;
 
-                    case R.id.radio_commission_parttime :
+                    case R.id.radio_fix_parttime :
                         if(PartTimeFragment.this.fixBasedFragment == null)
                         {
                             PartTimeFragment.this.fixBasedFragment = new FixBasedFragment();

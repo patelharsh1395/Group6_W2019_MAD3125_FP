@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 import model.UserDefinedExe;
 import model.enums.gender;
-import model.inter.IPrintable;
+import model.interfaces.IPrintable;
 
 public abstract class Employee implements IPrintable {
 	private String Name;
