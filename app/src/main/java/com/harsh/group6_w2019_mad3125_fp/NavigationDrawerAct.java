@@ -1,6 +1,7 @@
 package com.harsh.group6_w2019_mad3125_fp;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
@@ -10,14 +11,20 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
 
 
+public class NavigationDrawerAct extends AppCompatActivity{
 
-public class NavigationDrawerAct extends AppCompatActivity {
+    private WebView webView;
 
 
     Toolbar customToolBar;
@@ -35,6 +42,39 @@ public class NavigationDrawerAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
+
+
+
+       // String htmlString = "<h1>Hello World</h1>";
+       // webView = findViewById(R.id.myWebView);
+
+      //  webView.setWebViewClient(new WebViewClient());
+       // webView.loadUrl("https://www.google.com");
+
+        // webView.loadData(htmlString, "aboutus/html", "utf8");
+
+       // AssetManager mAssetManager = this.getAssets();
+       // try
+      //  {
+          //  InputStream mInputStream = mAssetManager.open("aboutus.html");
+          //  int size = mInputStream.available();
+          //  byte[] buffer = new byte[size];
+           // mInputStream.read(buffer);
+          //  mInputStream.close();
+          //  String content = new String(buffer, "UTF-8");
+
+          //  Log.d("DATA", content);
+            // webView.loadData(content, "aboutus/html", "utf-8");
+      //  } catch (IOException e)
+       // {
+           // e.printStackTrace();
+      //  }
+
+
+
+
+
+
 
 
         this.nav_drawer = (DrawerLayout) findViewById(R.id.nav_drawer);
