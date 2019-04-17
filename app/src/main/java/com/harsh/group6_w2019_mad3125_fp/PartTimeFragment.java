@@ -24,6 +24,8 @@ public class PartTimeFragment extends Fragment implements DataFromAddEmployeeFra
     TextView name;
     TextView age;
     RadioGroup gender;
+    TextView dateOfBirth;
+    RadioGroup vehicle;
 
     TextView ratePerHour;
     TextView numberOfHours;
@@ -37,11 +39,13 @@ public class PartTimeFragment extends Fragment implements DataFromAddEmployeeFra
 
 
 
-    public void viewsFromAddEmployeeFragment(TextView name, TextView age, RadioGroup gender)
+    public void viewsFromAddEmployeeFragment(TextView name, TextView age, RadioGroup gender , TextView dateOfBirth , RadioGroup vehicle)
     {
         this.name = name;
         this.age = age;
         this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.vehicle = vehicle;
     }
 
 
@@ -75,7 +79,7 @@ public class PartTimeFragment extends Fragment implements DataFromAddEmployeeFra
                         if(PartTimeFragment.this.commissionBasedFragment == null)
                         {
                             PartTimeFragment.this.commissionBasedFragment = new CommissionBasedFragment();
-                            PartTimeFragment.this.commissionBasedFragment.viewsFromPartTimeFragment(name,age,gender,ratePerHour, numberOfHours);
+                            PartTimeFragment.this.commissionBasedFragment.viewsFromPartTimeFragment(name,age,gender,ratePerHour, numberOfHours, dateOfBirth, vehicle);
                         }
                         PartTimeFragment.this.fragmentManager.beginTransaction();
                          fragmentTransaction = PartTimeFragment.this.fragmentManager.beginTransaction();
@@ -87,6 +91,7 @@ public class PartTimeFragment extends Fragment implements DataFromAddEmployeeFra
                         if(PartTimeFragment.this.fixBasedFragment == null)
                         {
                             PartTimeFragment.this.fixBasedFragment = new FixBasedFragment();
+                            PartTimeFragment.this.fixBasedFragment.viewsFromPartTimeFragment(name,age,gender,ratePerHour, numberOfHours, dateOfBirth, vehicle);
                         }
                         PartTimeFragment.this.fragmentManager.beginTransaction();
                          fragmentTransaction = PartTimeFragment.this.fragmentManager.beginTransaction();

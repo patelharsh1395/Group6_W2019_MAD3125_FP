@@ -8,9 +8,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class FixBasedFragment extends Fragment {
+import com.harsh.group6_w2019_mad3125_fp.interfaces.DataFromPartTimeFragment;
+
+import model.Car;
+import model.CommissionBasedPartTime;
+import model.FixedBasedPartTime;
+import model.MotorCycle;
+import model.SingleToneExample;
+import model.abstracts.Vehicle;
+import model.enums.Gender;
+
+public class FixBasedFragment extends Fragment implements DataFromPartTimeFragment {
+
+    TextView name;
+    TextView age;
+    RadioGroup gender;
+    TextView ratePerHour;
+    TextView numberOfHours;
+    TextView dateOfBirth;
+    RadioGroup vehicle;
 
     TextView fixedamount;
     Button addFixedBasedEmployee;
@@ -34,10 +54,59 @@ public class FixBasedFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
+                int fixedamount_int = Integer.parseInt(fixedamount.getText().toString());
+                int rate_int = Integer.parseInt(ratePerHour.getText().toString());
+                float hours_float = Float.parseFloat(numberOfHours.getText().toString());
+                String name_string = name.getText().toString();
+                int age_int = Integer.parseInt(age.getText().toString().substring(6));
+                Gender gender_enum = null;
+                Vehicle vehicle_Vehicle = null;
+                switch (vehicle.getCheckedRadioButtonId())
+                {
+                    case R.id.radio_car :
+                        vehicle_Vehicle = new Car("","","", 0 );
+                        break;
+                    case  R.id.radio_motorCycle :
+                        vehicle_Vehicle = new MotorCycle("","","",0);
+                        break;
+
+                }
+
+
+                switch (gender.getCheckedRadioButtonId())
+                {
+                    case R.id.radio_female :
+                        gender_enum = Gender.FEMALE;
+                        break;
+
+                    case R.id.radio_male :
+                        gender_enum = Gender.MALE;
+                        break;
+                }
+                SingleToneExample.getObj().addIntoList(new FixedBasedPartTime(fixedamount_int,rate_int , hours_float, name_string, age_int, gender_enum, vehicle_Vehicle));
+                Toast.makeText(getActivity(), "Employee Added", Toast.LENGTH_LONG).show();
+                fixedamount.setText(null);
+                ratePerHour.setText(null);
+                numberOfHours.setText(null);
+                name.setText(null);
+                age.setText(null);
+                dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
+
             }
         });
     }
 
 
+    @Override
+    public void viewsFromPartTimeFragment(TextView name, TextView age, RadioGroup gender, TextView ratePerHour, TextView numberOfHours, TextView dateOfBirth, RadioGroup vehicle) {
 
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.ratePerHour = ratePerHour;
+        this.numberOfHours = numberOfHours;
+        this.dateOfBirth = dateOfBirth;
+        this.vehicle = vehicle;
+    }
 }

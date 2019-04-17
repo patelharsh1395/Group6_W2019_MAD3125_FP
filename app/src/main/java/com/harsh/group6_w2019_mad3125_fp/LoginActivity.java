@@ -66,14 +66,14 @@ public class LoginActivity extends AppCompatActivity {
                     alertdialogBuilder.setTitle("status");
                     alertdialogBuilder.setMessage("ivalid details")
                             .setCancelable(false)
-                            .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            .setPositiveButton("okay", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int i) {
 
                                     LoginActivity.this.finish();
                                 }
                             })
-                            .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                            .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int i) {
                                     dialog.cancel();

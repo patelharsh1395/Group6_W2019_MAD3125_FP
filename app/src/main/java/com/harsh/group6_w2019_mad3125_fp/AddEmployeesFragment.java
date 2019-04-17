@@ -29,6 +29,7 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
     TextView text_name;
     TextView text_date_of_birth;
     RadioGroup gender;
+    RadioGroup vehicle;
     RadioGroup employementtype;
     FullTimeFragment fullTimeFragment;
     PartTimeFragment partTimeFragment;
@@ -48,7 +49,7 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        this.vehicle = view.findViewById(R.id.radio_group_vehicle);
         this.text_age = view.findViewById(R.id.text_age);
         this.text_name = view.findViewById(R.id.text_name);
         this.fragmentManager = this.getActivity().getSupportFragmentManager();
@@ -91,7 +92,7 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
                         if(AddEmployeesFragment.this.partTimeFragment  == null)
                         {
                             AddEmployeesFragment.this.partTimeFragment = new PartTimeFragment();
-                            AddEmployeesFragment.this.partTimeFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender);
+                            AddEmployeesFragment.this.partTimeFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender, text_date_of_birth , vehicle);
                         }
                         fragmentTransaction = AddEmployeesFragment.this.fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout_employment, AddEmployeesFragment.this.partTimeFragment);
@@ -102,7 +103,7 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
                         if(AddEmployeesFragment.this.fullTimeFragment  == null)
                         {
                             AddEmployeesFragment.this.fullTimeFragment = new FullTimeFragment();
-                            AddEmployeesFragment.this.fullTimeFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender);
+                            AddEmployeesFragment.this.fullTimeFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender , text_date_of_birth , vehicle);
                         }
                         fragmentTransaction = AddEmployeesFragment.this.fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout_employment, AddEmployeesFragment.this.fullTimeFragment);
@@ -113,7 +114,7 @@ public class AddEmployeesFragment extends Fragment implements View.OnClickListen
                         if(AddEmployeesFragment.this.internFragment  == null)
                         {
                             AddEmployeesFragment.this.internFragment = new InternFragment();
-                            AddEmployeesFragment.this.internFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender);
+                            AddEmployeesFragment.this.internFragment.viewsFromAddEmployeeFragment(text_name, text_age ,gender , text_date_of_birth , vehicle);
                         }
                         fragmentTransaction = AddEmployeesFragment.this.fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame_layout_employment, AddEmployeesFragment.this.internFragment);
