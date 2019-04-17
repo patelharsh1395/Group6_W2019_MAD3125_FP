@@ -91,6 +91,8 @@ public class CommissionBasedFragment extends Fragment implements DataFromPartTim
                 name.setText(null);
                 age.setText(null);
                 dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
+                gender.clearCheck();
+                vehicle.clearCheck();
 
              //   Intent mIntent = new Intent(getContext(), NavigationDrawerAct.class);
                // startActivity(mIntent);

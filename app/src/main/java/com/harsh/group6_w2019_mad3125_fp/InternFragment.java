@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,37 +52,41 @@ public class InternFragment extends Fragment implements DataFromAddEmployeeFragm
         this.addIntern.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String schoolname_string = schoolName.getText().toString();
-                String name_string = name.getText().toString();
-                int age_int = Integer.parseInt(age.getText().toString().substring(6));
-                Gender gender_enum = null;
-                switch (gender.getCheckedRadioButtonId())
-                {
-                    case R.id.radio_female :
-                        gender_enum = Gender.FEMALE;
-                        break;
 
-                    case R.id.radio_male :
-                        gender_enum = Gender.MALE;
-                        break;
-                }
-                Vehicle vehicle_Vehicle = null;
-                switch (vehicle.getCheckedRadioButtonId())
-                {
-                    case R.id.radio_car :
-                        vehicle_Vehicle = new Car("","","", 0 );
-                        break;
-                    case  R.id.radio_motorCycle :
-                        vehicle_Vehicle = new MotorCycle("","","",0);
-                        break;
+                    Log.e("****",schoolName.getText().toString()+"empty");
+                    Log.e("****","empty");
+                    String schoolname_string = schoolName.getText().toString();
+                    String name_string = name.getText().toString();
+                    int age_int = Integer.parseInt(age.getText().toString().substring(6));
+                    Gender gender_enum = null;
+                    switch (gender.getCheckedRadioButtonId()) {
+                        case R.id.radio_female:
+                            gender_enum = Gender.FEMALE;
+                            break;
 
-                }
-                SingleToneExample.getObj().addIntoList(new Intern(schoolname_string, name_string, age_int , gender_enum, vehicle_Vehicle));
-                Toast.makeText(getActivity(), "Employee Added", Toast.LENGTH_LONG).show();
-                schoolName.setText(null);
-                name.setText(null);
-                age.setText(null);
-                dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
+                        case R.id.radio_male:
+                            gender_enum = Gender.MALE;
+                            break;
+                    }
+                    Vehicle vehicle_Vehicle = null;
+                    switch (vehicle.getCheckedRadioButtonId()) {
+                        case R.id.radio_car:
+                            vehicle_Vehicle = new Car("", "", "", 0);
+                            break;
+                        case R.id.radio_motorCycle:
+                            vehicle_Vehicle = new MotorCycle("", "", "", 0);
+                            break;
+
+                    }
+                    SingleToneExample.getObj().addIntoList(new Intern(schoolname_string, name_string, age_int, gender_enum, vehicle_Vehicle));
+                    Toast.makeText(getActivity(), "Employee Added", Toast.LENGTH_LONG).show();
+                    schoolName.setText(null);
+                    name.setText(null);
+                    age.setText(null);
+                    dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
+                    vehicle.clearCheck();
+                    gender.clearCheck();
+
             }
         });
 

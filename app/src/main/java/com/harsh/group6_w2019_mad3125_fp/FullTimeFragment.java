@@ -93,6 +93,8 @@ public class FullTimeFragment extends Fragment implements DataFromAddEmployeeFra
                 name.setText(null);
                 age.setText(null);
                 dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
+                gender.clearCheck();
+                vehicle.clearCheck();
             }
         });
     }
