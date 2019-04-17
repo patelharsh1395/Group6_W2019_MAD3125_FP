@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
 
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
-        lblmsg = findViewById(R.id.lblMessage);
+
         btnSignin = findViewById(R.id.btnSignin);
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,8 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText( LoginActivity.this,email,Toast.LENGTH_SHORT).show();
                 if(email.equals("admin123@gmail.com") && password.equals( "123"))
                 {
-                    lblmsg.setText("login successful");
-                    lblmsg.setTextColor(Color.GREEN);
+
                     Intent mIntent = new Intent(LoginActivity.this, NavigationDrawerAct.class);
                     startActivity(mIntent);
 

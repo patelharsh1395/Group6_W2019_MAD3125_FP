@@ -47,7 +47,7 @@ public class AboutUsFragment extends Fragment {
           String content = new String(buffer, "UTF-8");
 
           Log.d("DATA", content);
-         webView.loadData(content, "aboutus/html", "utf-8");
+         webView.loadData(content, "text/html", "utf-8");
           } catch (IOException e)
          {
          e.printStackTrace();
