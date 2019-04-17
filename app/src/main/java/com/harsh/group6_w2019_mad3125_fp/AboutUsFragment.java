@@ -1,15 +1,20 @@
 package com.harsh.group6_w2019_mad3125_fp;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class AboutUsFragment extends Fragment {
 
@@ -29,6 +34,24 @@ public class AboutUsFragment extends Fragment {
         this.webView.setWebViewClient(new WebViewClient());
         this.webView.loadUrl("https://www.google.com");
 
+
+
+         AssetManager mAssetManager = getActivity().getAssets(); //this.getAssets();
+         try
+          {
+          InputStream mInputStream = mAssetManager.open("aboutus.html");
+          int size = mInputStream.available();
+          byte[] buffer = new byte[size];
+         mInputStream.read(buffer);
+          mInputStream.close();
+          String content = new String(buffer, "UTF-8");
+
+          Log.d("DATA", content);
+         webView.loadData(content, "aboutus/html", "utf-8");
+          } catch (IOException e)
+         {
+         e.printStackTrace();
+          }
 
 
 

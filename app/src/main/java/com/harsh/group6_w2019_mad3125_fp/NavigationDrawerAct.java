@@ -45,31 +45,6 @@ public class NavigationDrawerAct extends AppCompatActivity{
 
 
 
-       // String htmlString = "<h1>Hello World</h1>";
-       // webView = findViewById(R.id.myWebView);
-
-      //  webView.setWebViewClient(new WebViewClient());
-       // webView.loadUrl("https://www.google.com");
-
-        // webView.loadData(htmlString, "aboutus/html", "utf8");
-
-       // AssetManager mAssetManager = this.getAssets();
-       // try
-      //  {
-          //  InputStream mInputStream = mAssetManager.open("aboutus.html");
-          //  int size = mInputStream.available();
-          //  byte[] buffer = new byte[size];
-           // mInputStream.read(buffer);
-          //  mInputStream.close();
-          //  String content = new String(buffer, "UTF-8");
-
-          //  Log.d("DATA", content);
-            // webView.loadData(content, "aboutus/html", "utf-8");
-      //  } catch (IOException e)
-       // {
-           // e.printStackTrace();
-      //  }
-
 
 
 

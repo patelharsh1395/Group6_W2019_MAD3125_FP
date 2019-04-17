@@ -7,6 +7,7 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -32,8 +33,8 @@ public class EmployeeFragment extends Fragment   {
     RecyclerView recyclerView;
     CustomAdapterForRecyclerView adapter;
 
-
-
+    FragmentTransaction fragmentTransaction;
+    EmployeeDatailsFragment employeeDatailsFragment;
 
 
     @Nullable
@@ -50,8 +51,17 @@ public class EmployeeFragment extends Fragment   {
         this.recyclerView = v.findViewById(R.id.recycler_view);
         adapter = new CustomAdapterForRecyclerView(employees_list, this.con, new CustomAdapterForRecyclerView.SetCustomClickListener() {
             @Override
-            public void customOnClick(Employee e) {
-                Toast.makeText(EmployeeFragment.this.con, e.getName(), Toast.LENGTH_LONG).show();
+            public void customOnClick(Employee employee) {
+                Toast.makeText(EmployeeFragment.this.con, employee.getName(), Toast.LENGTH_LONG).show();
+                if(employeeDatailsFragment == null) {
+                     employeeDatailsFragment = new EmployeeDatailsFragment();
+                }
+                 employeeDatailsFragment.employeeObject(employee);
+                 fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                 fragmentTransaction.replace(R.id.frame_layout , employeeDatailsFragment , "");
+                 fragmentTransaction.commit();
+                 fragmentTransaction.addToBackStack(null);
+
             }
         });
         this.recyclerView.setAdapter(adapter);
@@ -70,6 +80,7 @@ public class EmployeeFragment extends Fragment   {
 
     @Override
     public void onAttach(Context context) {
+
         super.onAttach(context);
     }
 
