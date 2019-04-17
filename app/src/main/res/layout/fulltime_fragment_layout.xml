@@ -18,7 +18,7 @@
             android:layout_margin="10dp"
             android:ems="10"
             android:hint="Salary amount"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -33,7 +33,7 @@
             android:layout_margin="10dp"
             android:ems="10"
             android:hint="Bonus amount"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
     </android.support.design.widget.TextInputLayout>
 
