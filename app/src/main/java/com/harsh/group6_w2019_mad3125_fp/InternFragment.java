@@ -53,8 +53,12 @@ public class InternFragment extends Fragment implements DataFromAddEmployeeFragm
             @Override
             public void onClick(View v) {
 
-                    Log.e("****",schoolName.getText().toString()+"empty");
-                    Log.e("****","empty");
+
+
+                if(!schoolName.getText().toString().isEmpty() && !name.getText().toString().isEmpty() &&  !age.getText().toString().isEmpty() && !(gender.getCheckedRadioButtonId() == -1))
+                {
+
+
                     String schoolname_string = schoolName.getText().toString();
                     String name_string = name.getText().toString();
                     int age_int = Integer.parseInt(age.getText().toString().substring(6));
@@ -86,6 +90,16 @@ public class InternFragment extends Fragment implements DataFromAddEmployeeFragm
                     dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
                     vehicle.clearCheck();
                     gender.clearCheck();
+
+
+                }
+                else
+                {
+
+                    Toast.makeText(getActivity(), "No field can be empty and unselected" , Toast.LENGTH_LONG).show();
+
+
+                }
 
             }
         });

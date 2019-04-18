@@ -54,46 +54,49 @@ public class FixBasedFragment extends Fragment implements DataFromPartTimeFragme
             @Override
             public void onClick(View v) {
 
+                if( !fixedamount.getText().toString().isEmpty() && !ratePerHour.getText().toString().isEmpty() && !numberOfHours.getText().toString().isEmpty() && !name.getText().toString().isEmpty() &&  !age.getText().toString().isEmpty() && !(gender.getCheckedRadioButtonId() == -1)) {
+                    int fixedamount_int = Integer.parseInt(fixedamount.getText().toString());
+                    int rate_int = Integer.parseInt(ratePerHour.getText().toString());
+                    float hours_float = Float.parseFloat(numberOfHours.getText().toString());
+                    String name_string = name.getText().toString();
+                    int age_int = Integer.parseInt(age.getText().toString().substring(6));
+                    Gender gender_enum = null;
+                    Vehicle vehicle_Vehicle = null;
+                    switch (vehicle.getCheckedRadioButtonId()) {
+                        case R.id.radio_car:
+                            vehicle_Vehicle = new Car("", "", "", 0);
+                            break;
+                        case R.id.radio_motorCycle:
+                            vehicle_Vehicle = new MotorCycle("", "", "", 0);
+                            break;
 
-                int fixedamount_int = Integer.parseInt(fixedamount.getText().toString());
-                int rate_int = Integer.parseInt(ratePerHour.getText().toString());
-                float hours_float = Float.parseFloat(numberOfHours.getText().toString());
-                String name_string = name.getText().toString();
-                int age_int = Integer.parseInt(age.getText().toString().substring(6));
-                Gender gender_enum = null;
-                Vehicle vehicle_Vehicle = null;
-                switch (vehicle.getCheckedRadioButtonId())
-                {
-                    case R.id.radio_car :
-                        vehicle_Vehicle = new Car("","","", 0 );
-                        break;
-                    case  R.id.radio_motorCycle :
-                        vehicle_Vehicle = new MotorCycle("","","",0);
-                        break;
+                    }
 
+
+                    switch (gender.getCheckedRadioButtonId()) {
+                        case R.id.radio_female:
+                            gender_enum = Gender.FEMALE;
+                            break;
+
+                        case R.id.radio_male:
+                            gender_enum = Gender.MALE;
+                            break;
+                    }
+                    SingleToneExample.getObj().addIntoList(new FixedBasedPartTime(fixedamount_int, rate_int, hours_float, name_string, age_int, gender_enum, vehicle_Vehicle));
+                    Toast.makeText(getActivity(), "Employee Added", Toast.LENGTH_LONG).show();
+                    fixedamount.setText(null);
+                    ratePerHour.setText(null);
+                    numberOfHours.setText(null);
+                    name.setText(null);
+                    age.setText(null);
+                    dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
+                    gender.clearCheck();
+                    vehicle.clearCheck();
                 }
-
-
-                switch (gender.getCheckedRadioButtonId())
+                else
                 {
-                    case R.id.radio_female :
-                        gender_enum = Gender.FEMALE;
-                        break;
-
-                    case R.id.radio_male :
-                        gender_enum = Gender.MALE;
-                        break;
+                    Toast.makeText(getActivity(), "No field can be empty and unselected" , Toast.LENGTH_LONG).show();
                 }
-                SingleToneExample.getObj().addIntoList(new FixedBasedPartTime(fixedamount_int,rate_int , hours_float, name_string, age_int, gender_enum, vehicle_Vehicle));
-                Toast.makeText(getActivity(), "Employee Added", Toast.LENGTH_LONG).show();
-                fixedamount.setText(null);
-                ratePerHour.setText(null);
-                numberOfHours.setText(null);
-                name.setText(null);
-                age.setText(null);
-                dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
-                gender.clearCheck();
-                vehicle.clearCheck();
 
             }
         });

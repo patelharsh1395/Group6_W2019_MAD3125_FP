@@ -60,41 +60,48 @@ public class FullTimeFragment extends Fragment implements DataFromAddEmployeeFra
             @Override
             public void onClick(View v) {
 
-                String name_string = name.getText().toString();
-                int age_int = Integer.parseInt(age.getText().toString().substring(6));
-                Gender gender_enum = null;
-                int salary_int = Integer.parseInt(salary.getText().toString());
-                int bonus_int = Integer.parseInt(bonus.getText().toString());
-                switch (gender.getCheckedRadioButtonId())
-                {
-                    case R.id.radio_female :
-                        gender_enum = Gender.FEMALE;
-                        break;
 
-                    case R.id.radio_male :
-                        gender_enum = Gender.MALE;
-                        break;
-                }
-                Vehicle vehicle_Vehicle = null;
-                switch (vehicle.getCheckedRadioButtonId())
-                {
-                    case R.id.radio_car :
-                        vehicle_Vehicle = new Car("","","", 0 );
-                        break;
-                    case  R.id.radio_motorCycle :
-                        vehicle_Vehicle = new MotorCycle("","","",0);
-                        break;
+                if( !bonus.getText().toString().isEmpty()   && !salary.getText().toString().isEmpty() && !name.getText().toString().isEmpty() &&  !age.getText().toString().isEmpty() && !(gender.getCheckedRadioButtonId() == -1)) {
 
+
+                    String name_string = name.getText().toString();
+                    int age_int = Integer.parseInt(age.getText().toString().substring(6));
+                    Gender gender_enum = null;
+                    int salary_int = Integer.parseInt(salary.getText().toString());
+                    int bonus_int = Integer.parseInt(bonus.getText().toString());
+                    switch (gender.getCheckedRadioButtonId()) {
+                        case R.id.radio_female:
+                            gender_enum = Gender.FEMALE;
+                            break;
+
+                        case R.id.radio_male:
+                            gender_enum = Gender.MALE;
+                            break;
+                    }
+                    Vehicle vehicle_Vehicle = null;
+                    switch (vehicle.getCheckedRadioButtonId()) {
+                        case R.id.radio_car:
+                            vehicle_Vehicle = new Car("", "", "", 0);
+                            break;
+                        case R.id.radio_motorCycle:
+                            vehicle_Vehicle = new MotorCycle("", "", "", 0);
+                            break;
+
+                    }
+                    SingleToneExample.getObj().addIntoList(new FullTime(salary_int, bonus_int, name_string, age_int, gender_enum, vehicle_Vehicle));
+                    Toast.makeText(getActivity(), "Employee Added", Toast.LENGTH_LONG).show();
+                    salary.setText(null);
+                    bonus.setText(null);
+                    name.setText(null);
+                    age.setText(null);
+                    dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
+                    gender.clearCheck();
+                    vehicle.clearCheck();
                 }
-                SingleToneExample.getObj().addIntoList(new FullTime(salary_int, bonus_int ,name_string , age_int , gender_enum , vehicle_Vehicle));
-                Toast.makeText(getActivity(), "Employee Added", Toast.LENGTH_LONG).show();
-                salary.setText(null);
-                bonus.setText(null);
-                name.setText(null);
-                age.setText(null);
-                dateOfBirth.setText(SpanningForString.forDate("DateOfBirth : YYYY/MM/DD"));
-                gender.clearCheck();
-                vehicle.clearCheck();
+                else
+                {
+                    Toast.makeText(getActivity(), "No field can be empty and unselected" , Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
